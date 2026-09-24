@@ -1,0 +1,27 @@
+[model]
+long_days = 365
+recent_days = 90
+change_days = 180
+min_segment = 21
+rate_shape = 0.5
+rate_rate = 5.0
+change_prior = 0.5
+birth_shape = 1.0
+birth_rate = 333.3333333333333
+grid_size = 121
+
+[validation]
+min_train = 180
+horizon = 30
+bootstrap = 100
+
+[simulation]
+simulations = 1000000
+chunk_size = 25000
+target = 100000
+years = 30
+step_days = 30
+seed = 20260924
+plot_paths = 120
+# Explicit sensitivity scenario, NOT a learned hazard:
+# feedback_half_life_years = 3.0
