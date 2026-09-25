@@ -1,17 +1,33 @@
-# Changelog
+# 변경 기록
+
+## 0.3.0
+
+- 대표 프로젝트, 기존 프로젝트 재작성, 모듈 도입 사건을 설정하는 독립 생태계 시나리오 추가.
+- 추가 발견자·스타·응용 개발자·프로젝트·언어 기여자를 분리한 정수 집단 모형 구현.
+- 중복 발견 제한, 유한한 잠재 독자, 개발 완료 지연, 프로젝트 중단, 기여 활동 이탈 반영.
+- 기존 직접 유입과 생태계층의 난수 흐름을 분리하고 동일 기준선과의 쌍 비교 제공.
+- 스타 비례 모형에 추가 스타를 다시 넣어 이중 증폭하지 않도록 분리.
+- 추가 평균 유입이 하루 1·5·10·30 스타를 일정 기간 유지하는 운영상 관찰 지표 추가.
+- 터미널, HTML, 요약 텍스트, 그래프, 사람이 읽는 CSV를 한국어로 표시.
+- 기존 영문 CSV/JSON 스키마는 연결 도구와의 호환용으로 유지.
+- 한글 글꼴을 긴 실행 전에 확인하고 CI에도 한글 글꼴 설치.
+- 시나리오 설정을 재개 지문에 포함하고 합성 데이터 회귀 테스트 추가.
+- 생태계 가정은 실제 미래 사건의 확률을 학습한 것이 아니며 기본 모형 가중치를 시나리오의 검증 성능으로 해석하지 않음.
+
+추가 독자층은 기존 유입과 겹치지 않는다고 가정한다. 추가 유입만 더하므로 기준선보다 낮아지지 않는 것은 모형 구조의 결과다. 기존 사용자 이탈·유입 대체·실제 관측을 이용한 생태계 전환율 학습은 별도 확장 대상이다. 0.2 실행은 새 소스 지문과 일치하지 않으므로 새 결과 폴더를 사용한다.
 
 ## 0.2.0
 
-- Replace the initial monolithic experiment with data, model, validation, simulation and reporting modules.
-- Correct change-point inference using the same daily likelihood and integration over split locations plus a no-change alternative.
-- Compare all models using the log probability of the same held-out integer count; remove the continuous-density/discrete-probability score mixture and 5% weight floor.
-- Refit candidates at each rolling origin; evaluate ensemble weights using only earlier validation outcomes.
-- Replace the arbitrary monthly log-growth AR process with an explicit integer birth/immigration model.
-- Add a separately overdispersed negative-binomial process with posterior grid integration.
-- Add an explicitly assumed finite-feedback-duration scenario, without labeling its hazard as learned.
-- Separate conditional hitting-time quantiles from all-path quantiles and right-censored outcomes.
-- Add analytic crossing-probability checks, Monte Carlo Wilson intervals, calendar checkpoints and interval-end hitting times.
-- Add bounded chunk processing, spawned parallel workers, source/input/version fingerprints and hashed resumable checkpoints.
-- Add a local HTML report, six chart types, CSV summaries and synthetic-data regression tests.
+- 초기 단일 파일 실험을 자료·모형·검증·시뮬레이션·보고서 모듈로 분리.
+- 같은 일별 우도를 사용하고 변화 없음과 여러 변화 위치를 함께 적분하도록 변화점 계산 수정.
+- 모든 모형을 같은 미래 정수 증가량의 예측 확률로 비교. 연속 밀도와 정수 확률을 섞던 점수 및 강제 5% 비중 제거.
+- 과거 검증 시점마다 재학습하고 이전 검증 결과만으로 조합 비중 평가.
+- 임의의 월별 로그 성장 과정 대신 정수 출생·이민 과정 도입.
+- 음이항 과산포 모형과 사후분포 격자 적분 추가.
+- 데이터에서 추정했다고 표시하지 않는 유한 피드백 지속 시간 가정 추가.
+- 도달한 경로만의 분위수와 미도달을 포함한 전체 분위수 분리.
+- 해석식 교차 확인, 몬테카를로 윌슨 구간, 달력 기준 체크포인트와 구간 끝 도달 시점 추가.
+- 메모리 제한 청크 처리, 병렬 작업자, 코드·입력·버전 지문과 해시 기반 재개 추가.
+- 로컬 HTML 보고서, 여섯 종류의 그래프, CSV 및 합성 데이터 회귀 테스트 추가.
 
-The v1 model weights and headline target probabilities are not comparable with v2 as calibrated success probabilities. v2's scenario results are also conditional on its models and long-term assumptions.
+이전 실험의 비중이나 목표 도달 비율을 실제 성공 확률로 비교할 수 없다. 각 버전의 결과는 선택한 모형과 장기 가정 아래의 조건부 결과다.
