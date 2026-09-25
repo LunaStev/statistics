@@ -101,7 +101,7 @@ def validate(history: History, cfg: ModelConfig, *, horizon: int = 30,
                          covered80=lo <= truth <= hi, absolute_error=abs(median - truth)))
         score_rows.append(scores)
         if progress:
-            print(f"\rValidated {fold + 1}/{len(origins)} historical windows", end="", flush=True)
+            print(f"\r과거 예측 시험: {fold + 1}/{len(origins)}개 구간 완료", end="", flush=True)
     if progress:
         print()
     scores = np.vstack(score_rows)
