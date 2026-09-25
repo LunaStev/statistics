@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wave-growth-statistics"
-version = "0.2.0"
-description = "Validated count-model forecasts and Monte Carlo scenarios for repository growth"
+version = "0.3.0"
+description = "Validated count-model forecasts and explicit ecosystem scenarios"
 requires-python = ">=3.11"
 dependencies = ["numpy>=1.26", "pandas>=2.1", "scipy>=1.11", "matplotlib>=3.8"]
 
