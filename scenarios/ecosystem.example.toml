@@ -1,0 +1,53 @@
+# 이 파일의 날짜·발생 확률·전환율은 모두 비교 실험을 위한 임의의 가정이다.
+# Wave 이력에서 추정한 값이나 출시/성공을 보장하는 일정이 아니다.
+# probability = 1은 '발생한다고 가정하고 비교'이지 확실히 발생한다는 예측이 아니다.
+[scenario]
+name = "대표작·재작성·모듈 도입이 이어지는 경우"
+additional_audience = 2000000  # 기존 유입과 겹치지 않는 추가 잠재 독자 집단
+initial_developers = 0
+star_probability = 0.12       # 처음 발견한 사람 중 스타를 누를 확률
+adoption_probability = 0.02   # 처음 발견한 사람 중 Wave를 사용할 확률
+project_start_rate_per_day = 0.001
+# 개발은 즉시 끝나지 않는다. 진행 중 포기할 수도 있다.
+development_mean_days = 90.0
+developer_half_life_days = 365.0
+project_half_life_days = 730.0
+regular_leads_per_day = 0.05
+successful_leads_per_day = 20.0
+project_success_probability = 0.005
+# 완성한 프로젝트 개발자 일부가 언어에 기여하고, 후속 개발 시작을 돕는 조건
+contribution_probability = 0.10
+contributor_half_life_days = 365.0
+contribution_max_boost = 1.0
+contribution_scale = 20.0
+sustained_days = 30  # 평균 추가 유입이 1/5/10/30개 이상으로 유지되는 기간
+
+[[events]]
+name = "첫 대표 프로젝트 공개"
+kind = "killer"
+earliest = "2027-03-01"
+latest = "2027-12-31"
+probability = 1.0
+leads_per_day = 40.0  # 하위 프로젝트의 스타 수가 아니라 초기 하루 도달 시도
+log_sigma = 0.5       # 도달 강도에 대한 로그정규 변동성
+half_life_days = 730.0
+
+[[events]]
+name = "기존 프로젝트의 Wave 재작성"
+kind = "rewrite"
+earliest = "2028-01-01"
+latest = "2028-12-31"
+probability = 1.0
+leads_per_day = 20.0
+log_sigma = 0.5
+half_life_days = 730.0
+
+[[events]]
+name = "기존 제품의 일부 모듈에 Wave 도입"
+kind = "module"
+earliest = "2028-01-01"
+latest = "2029-06-30"
+probability = 1.0
+leads_per_day = 10.0
+log_sigma = 0.4
+half_life_days = 365.0
