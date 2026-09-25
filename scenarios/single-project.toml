@@ -1,0 +1,21 @@
+# 대표작 하나가 생긴다고 가정한 비교용 예시. 실측 전환율/발생 확률이 아니다.
+[scenario]
+name = "대표작 하나만 등장하는 경우"
+additional_audience = 1000000
+star_probability = 0.10
+adoption_probability = 0.01
+project_start_rate_per_day = 0.001
+regular_leads_per_day = 0.03
+successful_leads_per_day = 10.0
+project_success_probability = 0.005
+contribution_max_boost = 0.5
+
+[[events]]
+name = "첫 대표 프로젝트"
+kind = "killer"
+earliest = "2027-03-01"
+latest = "2027-12-31"
+probability = 1.0
+leads_per_day = 30.0
+log_sigma = 0.5
+half_life_days = 730.0
