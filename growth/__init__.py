@@ -1,2 +1,2 @@
-"""Count-based star-history forecasting and explicit long-horizon scenarios."""
-__version__ = "0.2.0"
+"""Wave 성장 통계와 조건부 생태계 실험."""
+__version__ = "0.3.0"
